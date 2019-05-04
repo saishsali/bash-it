@@ -151,15 +151,16 @@ function git_prompt_minimal_info {
 
   SCM_BRANCH="${SCM_THEME_BRANCH_PREFIX}\$(_git-friendly-ref)"
 
-  if [[ -n "$(_git-status | tail -n1)" ]]; then
-    SCM_DIRTY=1
-    SCM_STATE=${SCM_THEME_PROMPT_DIRTY}
-  fi
+  #if [[ -n "$(_git-status | tail -n1)" ]]; then
+  #  SCM_DIRTY=1
+  #  SCM_STATE=${SCM_THEME_PROMPT_DIRTY}
+  #fi
 
   # Output the git prompt
   SCM_PREFIX=${SCM_THEME_PROMPT_PREFIX}
   SCM_SUFFIX=${SCM_THEME_PROMPT_SUFFIX}
-  echo -e "${SCM_PREFIX}${SCM_BRANCH}${SCM_STATE}${SCM_SUFFIX}"
+  #echo -e "${SCM_PREFIX}${SCM_BRANCH}${SCM_STATE}${SCM_SUFFIX}"
+  echo -e "${SCM_PREFIX}${SCM_BRANCH}${SCM_SUFFIX}"
 }
 
 function git_prompt_vars {
