@@ -24,6 +24,10 @@ function _git-short-sha {
   git rev-parse --short HEAD
 }
 
+function _git_parent {
+  git show-branch | grep '*' | grep -v "$(git rev-parse --abbrev-ref HEAD)" | head -n1 | sed 's/.*\[\(.*\)\].*/\1/' | sed 's/[\^~].*//'
+}
+
 # Try the checked-out branch first to avoid collision with branches pointing to the same ref.
 function _git-friendly-ref {
     _git-branch || _git-tag || _git-commit-description || _git-short-sha

@@ -150,7 +150,7 @@ function git_prompt_minimal_info {
   _git-hide-status && return
 
   SCM_BRANCH="${SCM_THEME_BRANCH_PREFIX}\$(_git-friendly-ref)"
-
+  SCM_PARENT=" -> $(_git_parent)"
   #if [[ -n "$(_git-status | tail -n1)" ]]; then
   #  SCM_DIRTY=1
   #  SCM_STATE=${SCM_THEME_PROMPT_DIRTY}
@@ -160,7 +160,7 @@ function git_prompt_minimal_info {
   SCM_PREFIX=${SCM_THEME_PROMPT_PREFIX}
   SCM_SUFFIX=${SCM_THEME_PROMPT_SUFFIX}
   #echo -e "${SCM_PREFIX}${SCM_BRANCH}${SCM_STATE}${SCM_SUFFIX}"
-  echo -e "${SCM_PREFIX}${SCM_BRANCH}${SCM_SUFFIX}"
+  echo -e "${SCM_PREFIX}${SCM_BRANCH}${SCM_PARENT}${SCM_SUFFIX}"
 }
 
 function git_prompt_vars {
